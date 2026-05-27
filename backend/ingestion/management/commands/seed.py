@@ -45,7 +45,12 @@ class Command(BaseCommand):
             )
             self.stdout.write(self.style.SUCCESS(f"Created User: '{user_email}' with password '{user_pwd}'"))
         else:
-            self.stdout.write(self.style.WARNING(f"User '{user_email}' already exists"))
+            analyst.set_password(user_pwd)
+            analyst.is_staff = True
+            analyst.is_superuser = True
+            analyst.tenant = tenant
+            analyst.save()
+            self.stdout.write(self.style.SUCCESS(f"Verified and updated User: '{user_email}' password to '{user_pwd}'"))
 
         # 3. Seed Sample Files
         base_dir = settings.BASE_DIR
