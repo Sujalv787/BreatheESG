@@ -29,7 +29,7 @@ services:
   # ── 2. React / Vite Frontend (static sites do NOT support region) ─────────────
   - type: web
     name: breathe-esg-frontend
-    env: static
+    runtime: static
     plan: free
     rootDir: frontend
     buildCommand: "npm install && npm run build"
