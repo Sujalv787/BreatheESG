@@ -39,7 +39,7 @@ services:
         destination: "/index.html"
     envVars:
       - key: VITE_API_BASE_URL
-        value: "https://breathe-esg-backend.onrender.com"
+        value: "https://breathe-esg-backend-bdg8.onrender.com"
 
 # ── 3. PostgreSQL Database ────────────────────────────────────────────────────
 databases:

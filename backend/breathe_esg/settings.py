@@ -136,17 +136,7 @@ SIMPLE_JWT = {
 }
 
 
-# ─── CORS ────────────────────────────────────────────────────────────────────
-# In production, set CORS_ALLOWED_ORIGINS env var to the deployed frontend URL.
-
-CORS_ALLOWED_ORIGINS_ENV = os.environ.get('CORS_ALLOWED_ORIGINS', '')
-
-if CORS_ALLOWED_ORIGINS_ENV:
-    CORS_ALLOWED_ORIGINS = [o.strip() for o in CORS_ALLOWED_ORIGINS_ENV.split(',') if o.strip()]
-else:
-    # Allow everything in development
-    CORS_ALLOW_ALL_ORIGINS = True
-
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 
