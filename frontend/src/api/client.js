@@ -1,11 +1,8 @@
 import axios from 'axios';
 
-// Use env variable if set (dev), otherwise fall back to the deployed backend
-const baseURL = import.meta.env.VITE_API_BASE_URL
-  ? import.meta.env.VITE_API_BASE_URL.startsWith('http')
-    ? import.meta.env.VITE_API_BASE_URL
-    : `https://${import.meta.env.VITE_API_BASE_URL}`
-  : 'https://breathe-esg-backend-5hej.onrender.com';
+// Production backend URL — hardcoded to avoid env var build-time issues
+const PROD_BACKEND = 'https://breathe-esg-backend-5hej.onrender.com';
+const baseURL = import.meta.env.DEV ? 'http://localhost:8000' : PROD_BACKEND;
 
 const client = axios.create({
   baseURL,
