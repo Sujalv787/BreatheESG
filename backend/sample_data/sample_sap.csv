@@ -1,0 +1,16 @@
+WERKS,MATNR,MENGE,MEINS,BUDAT,KOSTL,TXZ01
+PL01,MAT001,1500.0,L,20231201,CC101,Diesel fuel for logistics fleet
+PL01,MAT002,230.5,KG,20231201,CC101,Steel sheets procurement
+PL02,MAT001,800.0,L,20231205,CC102,Diesel fuel for backup generator
+PL01,MAT003,50.0,BOX,20231206,CC101,Office stationary items
+PL02,MAT004,120.0,KG,20231210,CC102,Plastic packaging materials
+PL03,MAT005,12.0,PCS,20231211,CC103,Laptops procurement for new hires
+PL01,MAT006,2000.0,L,20231212,CC101,Petrol fuel for sales cars
+PL02,MAT006,1200.0,L,15.12.2023,CC102,Petrol fuel for site utility vehicles
+PL03,MAT001,450.0,L,20231218,CC103,Diesel fuel for operations
+PL01,MAT007,5.0,UNIT,20231219,CC101,Breakroom coffee machines
+PL02,MAT008,350.0,KG,20231220,CC102,Cardboard boxes for shipping
+PL01,MAT001,950.0,L,20231222,CC101,Diesel fuel for yard tractor
+PL03,MAT009,10.0,KG,20231224,CC103,Copper cabling for facility upgrade
+PL01,MAT010,150.0,KG,20231228,CC101,Aluminum frames procurement
+PL02,MAT001,600.0,L,31.12.2023,CC102,Diesel fuel for on-site machinery

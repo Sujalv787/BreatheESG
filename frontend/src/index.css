@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #0a0f1e;
+    color: #f1f5f9;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+}
+
+@layer components {
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm
+           bg-emerald-500 text-white shadow-lg shadow-emerald-500/25
+           hover:bg-emerald-400 hover:shadow-emerald-400/40 hover:-translate-y-px
+           active:translate-y-0 active:bg-emerald-600
+           transition-all duration-200 cursor-pointer
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none disabled:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm
+           bg-slate-800/80 text-slate-300 border border-slate-700/60
+           hover:bg-slate-700 hover:text-white hover:border-slate-600
+           active:bg-slate-800 transition-all duration-200 cursor-pointer;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium
+           text-slate-400 hover:text-white hover:bg-slate-800/60
+           transition-all duration-150 cursor-pointer;
+  }
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm
+           bg-red-500/10 text-red-400 border border-red-500/20
+           hover:bg-red-500/20 hover:border-red-500/40 hover:text-red-300
+           transition-all duration-200 cursor-pointer;
+  }
+
+  /* ── Cards ── */
+  .glass-card {
+    @apply bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl;
+  }
+  .glass-card-hover {
+    @apply glass-card hover:border-slate-600/60 hover:bg-slate-800/60 transition-all duration-200;
+  }
+  .card-elevated {
+    @apply bg-slate-800/80 border border-slate-700/40 rounded-2xl shadow-xl;
+  }
+
+  /* ── Inputs ── */
+  .input-field {
+    @apply w-full bg-slate-800/80 border border-slate-700/60 rounded-xl
+           py-3 px-4 text-sm text-white placeholder-slate-500
+           focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/60
+           transition-all duration-200;
+  }
+
+  /* ── Status Badges ── */
+  .badge-pending  { @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-700/80  text-slate-300  border border-slate-600/50; }
+  .badge-approved { @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30; }
+  .badge-rejected { @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-red-500/15    text-red-400    border border-red-500/30; }
+  .badge-flagged  { @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/15  text-amber-400  border border-amber-500/30; }
+
+  /* ── Sidebar nav ── */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium
+           text-slate-400 hover:text-white hover:bg-slate-800/60
+           transition-all duration-150 cursor-pointer;
+  }
+  .nav-item-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold
+           text-white bg-emerald-500/15 border border-emerald-500/25
+           transition-all duration-150 cursor-pointer;
+  }
+
+  /* ── Table ── */
+  .tbl-th {
+    @apply px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-widest text-slate-500;
+  }
+  .tbl-td {
+    @apply px-4 py-3 text-sm text-slate-300;
+  }
+}
+
+/* ── Animations ── */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+  50% { box-shadow: 0 0 20px 4px rgba(16,185,129,0.2); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease infinite;
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-slide-up { animation: slide-up 0.4s ease forwards; }
+.animate-fade-in { animation: fade-in 0.3s ease forwards; }
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease infinite;
+}
+
+/* ── Grid background ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(16,185,129,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,185,129,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Glow effects ── */
+.glow-emerald { box-shadow: 0 0 40px -5px rgba(16,185,129,0.3); }
+.glow-blue    { box-shadow: 0 0 40px -5px rgba(59,130,246,0.3); }
+.glow-purple  { box-shadow: 0 0 40px -5px rgba(139,92,246,0.3); }
+
+/* ── Progress bar ── */
+.progress-bar {
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 999px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Drop zone ── */
+.drop-zone-active {
+  border-color: #10b981 !important;
+  background: rgba(16,185,129,0.05) !important;
+  box-shadow: 0 0 0 1px rgba(16,185,129,0.3), inset 0 0 40px rgba(16,185,129,0.03);
+}

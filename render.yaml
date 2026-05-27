@@ -1,0 +1,51 @@
+services:
+  # ── 1. Django REST Backend ───────────────────────────────────────────────────
+  - type: web
+    name: breathe-esg-backend
+    env: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "python manage.py migrate && python manage.py seed && gunicorn breathe_esg.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.1"
+      - key: DJANGO_SETTINGS_MODULE
+        value: breathe_esg.settings
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: breathe-esg-db
+          property: connectionString
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://breathe-esg-frontend.onrender.com"
+
+  # ── 2. React / Vite Frontend ─────────────────────────────────────────────────
+  - type: web
+    name: breathe-esg-frontend
+    env: static
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: "/*"
+        destination: "/index.html"
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: "https://breathe-esg-backend.onrender.com"
+
+# ── 3. PostgreSQL Database ────────────────────────────────────────────────────
+databases:
+  - name: breathe-esg-db
+    databaseName: breathe_esg
+    region: oregon
+    plan: free

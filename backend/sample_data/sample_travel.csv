@@ -1,0 +1,13 @@
+trip_id,traveler_email,travel_date,origin,destination,transport_type,distance_km,nights
+TRIP-101,john.doe@demo.com,2023-11-05,JFK,LHR,FLIGHT,,
+TRIP-102,jane.smith@demo.com,2023-11-06,SFO,LAX,FLIGHT,540.0,
+TRIP-103,john.doe@demo.com,2023-11-08,LHR,,HOTEL,,3
+TRIP-104,alice.brown@demo.com,2023-11-10,Paris,Lyon,TRAIN,460.0,
+TRIP-105,bob.green@demo.com,2023-11-12,Munich,Berlin,CAR,585.0,
+TRIP-106,jane.smith@demo.com,2023-11-15,LAX,SIN,FLIGHT,,
+TRIP-107,alice.brown@demo.com,2023-11-17,DEL,BOM,FLIGHT,,
+TRIP-108,bob.green@demo.com,2023-11-20,Berlin,,HOTEL,,5
+TRIP-109,john.doe@demo.com,2023-11-22,LHR,CDG,FLIGHT,350.0,
+TRIP-110,jane.smith@demo.com,2023-11-25,SIN,HND,FLIGHT,,
+TRIP-111,alice.brown@demo.com,2023-11-28,BOM,Delhi,TRAIN,1400.0,
+TRIP-112,bob.green@demo.com,2023-11-30,Frankfurt,Stuttgart,CAR,205.0,
