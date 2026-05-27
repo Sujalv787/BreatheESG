@@ -1,13 +1,11 @@
 import axios from 'axios';
 
-const rawUrl = import.meta.env.VITE_API_BASE_URL || '';
-// fromService property: host gives hostname only (e.g. "breathe-esg-backend-abc.onrender.com")
-// If it doesn't start with http, prefix with https://
-const baseURL = rawUrl
-  ? rawUrl.startsWith('http')
-    ? rawUrl
-    : `https://${rawUrl}`
-  : 'http://localhost:8000';
+// Use env variable if set (dev), otherwise fall back to the deployed backend
+const baseURL = import.meta.env.VITE_API_BASE_URL
+  ? import.meta.env.VITE_API_BASE_URL.startsWith('http')
+    ? import.meta.env.VITE_API_BASE_URL
+    : `https://${import.meta.env.VITE_API_BASE_URL}`
+  : 'https://breathe-esg-backend-5hej.onrender.com';
 
 const client = axios.create({
   baseURL,
